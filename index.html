@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VespineIT - Project Proposal: Website Redesign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-purple: #FF4500; /* Main color from vespineit.com */
+            --brand-dark: #1a202c; /* A dark text color */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6;
+        }
+        .text-brand-purple { color: var(--brand-purple); }
+        .bg-brand-purple { background-color: var(--brand-purple); }
+        .border-brand-purple { border-color: var(--brand-purple); }
+        
+        /* Timeline Styles */
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            padding-left: 2.5rem;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            background-color: white;
+            border: 4px solid var(--brand-purple);
+            z-index: 10;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 10px; /* Aligned with the center of the marker */
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0; /* tailwind gray-200 */
+        }
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container max-w-4xl mx-auto p-6 md:p-12 my-12 bg-white rounded-xl shadow-2xl">
+        
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+            <div>
+                <img src="https://vespineit.com/images/vespine.png" alt="VespineIT Logo" class="h-10 md:h-12 w-auto">
+                <p class="text-sm text-gray-500 mt-2">Prepared by: Sachindu D Weerakkodi</p>
+            </div>
+            <div class="text-left md:text-right mt-4 md:mt-0">
+                <h1 class="text-3xl font-bold text-brand-purple">Project Proposal</h1>
+                <p class="text-lg text-gray-600">Website Redesign Roadmap</p>
+            </div>
+        </header>
+
+        <!-- Project & Client Info -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12 border-t border-b border-gray-200 py-6">
+            <div>
+                <span class="text-sm font-semibold text-gray-500 uppercase">Prepared For</span>
+                <p class="text-lg font-medium text-gray-800">DPV Offshore & Marine Services</p>
+            </div>
+            <div>
+                <span class="text-sm font-semibold text-gray-500 uppercase">Date</span>
+                <p class="text-lg font-medium text-gray-800" id="current-date">24/10/2025</p>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <span class="text-sm font-semibold text-gray-500 uppercase">Timeline</span>
+                <p class="text-lg font-medium text-gray-800">4-Week (1 Month) Phased Delivery</p>
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-semibold text-brand-dark mb-3">Project Overview</h2>
+            <p class="text-gray-700 leading-relaxed">
+                This document outlines the proposed 4-week project roadmap for the redesign and development of the DPV Offshore & Marine Services corporate website. Our goal is to deliver a modern, responsive, and high-performance website using React.js and Tailwind CSS, aligning with your business objectives and providing a superior user experience.
+            </p>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-semibold text-brand-dark mb-4">Core Technology</h2>
+            <div class="flex flex-wrap gap-4">
+                <span class="inline-flex items-center bg-purple-100 text-brand-purple text-sm font-medium px-4 py-2 rounded-full">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h8a2 2 0 002-2V5a2 2 0 00-2-2H9a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Design: Figma
+                </span>
+                <span class="inline-flex items-center bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l-4 4-4-4l-4 4"></path></svg>
+                    Frontend: React.js
+                </span>
+                <span class="inline-flex items-center bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v2m14 0a2 2 0 002 2v6a2 2 0 00-2 2H5a2 2 0 00-2-2v-6a2 2 0 002-2"></path></svg>
+                    Styling: Tailwind CSS
+                </span>
+            </div>
+        </div>
+
+        <!-- Detailed Roadmap -->
+        <div>
+            <h2 class="text-2xl font-semibold text-brand-dark mb-6">Phased Project Roadmap</h2>
+            <div class="relative">
+                <!-- Timeline Line (Background) -->
+                <div class="timeline-line"></div>
+
+                <!-- Week 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="text-sm font-medium text-brand-purple bg-purple-100 px-3 py-1 rounded-full">Week 1</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-2">Discovery & UX Foundation</h3>
+                        <p class="text-gray-600 mb-4">Focus on aligning goals and defining the new site's structure.</p>
+                        <h4 class="font-semibold text-gray-700 mb-2">Key Activities:</h4>
+                        <ul class="list-disc list-outside text-gray-600 pl-5 space-y-1">
+                            <li>Stakeholder Kick-off & Goal Finalization (KPIs)</li>
+                            <li>Current Site Audit (Analytics, User Flow, Pain Points)</li>
+                            <li>Competitor Analysis & Modern UI Trends</li>
+                            <li>Information Architecture (IA) & New Sitemap</li>
+                            <li>Low-Fidelity Wireframes (Homepage, Services, About, Contact)</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-gray-800">
+                            <strong>Milestone:</strong> Client presentation of new Sitemap and Wireframes for approval.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="text-sm font-medium text-brand-purple bg-purple-100 px-3 py-1 rounded-full">Week 2</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-2">UI Design & Prototyping</h3>
+                        <p class="text-gray-600 mb-4">Translate approved wireframes into a high-fidelity visual design in Figma.</p>
+                        <h4 class="font-semibold text-gray-700 mb-2">Key Activities:</h4>
+                        <ul class="list-disc list-outside text-gray-600 pl-5 space-y-1">
+                            <li>Incorporate Feedback from Week 1</li>
+                            <li>High-Fidelity Mockups (Desktop & Mobile)</li>
+                            <li>Clickable Prototype to simulate user flow</li>
+                            <li>Client Presentation for final design feedback round</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-gray-800">
+                            <strong>Milestone:</strong> Final, client-approved Figma designs ("Design Lock").
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="text-sm font-medium text-brand-purple bg-purple-100 px-3 py-1 rounded-full">Week 3</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-2">Core Development</h3>
+                        <p class="text-gray-600 mb-4">Begin building the approved design using React and Tailwind CSS.</p>
+                        <h4 class="font-semibold text-gray-700 mb-2">Key Activities:</h4>
+                        <ul class="list-disc list-outside text-gray-600 pl-5 space-y-1">
+                            <li>React.js Project Setup & Tailwind CSS Configuration</li>
+                            <li>Reusable UI Component Library (Buttons, Headers, Cards)</li>
+                            <li>Assembly of primary static pages (Homepage, About, Services)</li>
+                            <li>Ensure full responsiveness across all devices</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-gray-800">
+                            <strong>Milestone:</strong> Internal demo of functional core pages on a private staging link.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Week 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="text-sm font-medium text-brand-purple bg-purple-100 px-3 py-1 rounded-full">Week 4</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-2">Final Development, QA & Launch</h3>
+                        <p class="text-gray-600 mb-4">Finalize features, perform thorough testing, and deploy the live site.</p>
+                        <h4 class="font-semibold text-gray-700 mb-2">Key Activities:</h4>
+                        <ul class="list-disc list-outside text-gray-600 pl-5 space-y-1">
+                            <li>Functional Development (Contact Form, Quote Form)</li>
+                            <li>Form Integration (e.g., email API)</li>
+                            <li>Quality Assurance (Cross-browser, device, and functional testing)</li>
+                            <li>Client User Acceptance Testing (UAT) on staging link</li>
+                            <li>Final revisions and bug fixes</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-gray-800">
+                            <strong>Milestone:</strong> Go-Live! Deploy to production and transfer ownership.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Assumptions -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+            <h2 class="text-2xl font-semibold text-brand-dark mb-4">Key Assumptions for Success</h2>
+            <p class="text-gray-600 mb-4">This 4-week timeline is ambitious and relies on strong collaboration. Its success depends on the following:</p>
+            <ol class="list-decimal list-outside text-gray-700 pl-5 space-y-2">
+                <li><strong>Timely Feedback:</strong> Client feedback must be provided within 24-48 hours at each milestone to maintain momentum.</li>
+                <li><strong>Content Provided:</strong> All website text (copy) and specific images (e.g., team photos, ship photos) will be provided by the client before development begins (ideally by Week 2).</li>
+                <li><strong>Fixed Scope:</strong> The project scope is limited to the pages and features defined in the Week 1 sitemap. New feature requests will require a scope and timeline adjustment.</li>
+            </ol>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 pt-8 border-t border-gray-300 text-center">
+            <p class="text-lg font-medium text-gray-800">Thank you for this opportunity.</p>
+            <p class="text-gray-600 mt-1">We look forward to partnering with you.</p>
+            <p class="text-sm text-brand-purple font-semibold mt-4">VespineIT | services@vespineit.com</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Set the current date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    </form>
+</body>
+</html>
